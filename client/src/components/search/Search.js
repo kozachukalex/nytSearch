@@ -6,7 +6,6 @@ import "./index.css"
 import API from '../../utils/API'
 
 export default class Search extends React.Component {
-
     state = {
         search: "",
         startYear: "",
@@ -25,15 +24,16 @@ export default class Search extends React.Component {
             .then(res => {
                 const foundArticles = res.data.response.docs;
                 const filteredArticles = []
-                foundArticles.forEach(article =>{
+                foundArticles.forEach(article => {
                     const title = article.headline.main
                     const summary = article.snippet
                     const author = article.byline ? article.byline.original : 'Author Not Found'
                     const link = article.web_url
                     filteredArticles.push({ title, summary, author, link })
+                    this.props.handleArticles(filteredArticles)
+                    // issue with state setting through prop handler
                 })
                 console.log(filteredArticles)
-                this.props.handleArticles(filteredArticles);
             }
             ).catch(err => console.log(err))
     };

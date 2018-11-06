@@ -6,26 +6,23 @@ import Results from "./components/results"
 import Saved from "./components/saved"
 
 class App extends Component {
+
   state = {
-    userSearched : false,
+    userSearched: false,
     currentArticles: []
   }
 
-  handleArticles(articles){
-    this.setState({currentArticles: articles})
+  handleArticles(articles) {
+    this.setState({ currentArticles: articles })
   }
 
   render() {
     return (
       <div className="App">
-      {/* <Header /> */}
-      <Search  handleArticles={this.handleArticles}/>
-      {this.state.userSearched ? (
-        <Results currentArticles={this.state.currentArticles}/>
-      ) : (
-        <div>Search to see your results</div>
-      )}
-      <Saved />
+        {/* <Header /> */}
+        <Search handleArticles={this.handleArticles} />
+        <Results currentArticles={this.state.currentArticles} />
+        <Saved />
       </div>
     );
   }
