@@ -12,7 +12,7 @@ class App extends Component {
     currentArticles: []
   }
 
-  handleArticles(articles) {
+  handleArticles = (articles) => {
     this.setState({ currentArticles: articles })
   }
 

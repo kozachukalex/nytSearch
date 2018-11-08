@@ -25,13 +25,13 @@ export default class Search extends React.Component {
                 const foundArticles = res.data.response.docs;
                 const filteredArticles = []
                 foundArticles.forEach(article => {
+                    const id = article._id;
                     const title = article.headline.main
                     const summary = article.snippet
                     const author = article.byline ? article.byline.original : 'Author Not Found'
                     const link = article.web_url
-                    filteredArticles.push({ title, summary, author, link })
+                    filteredArticles.push({ id, title, summary, author, link })
                     this.props.handleArticles(filteredArticles)
-                    // issue with state setting through prop handler
                 })
                 console.log(filteredArticles)
             }
