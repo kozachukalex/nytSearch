@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import API from './utils/API'
 // import Header from "./components/header"
 import Search from "./components/search"
 import Results from "./components/results"
@@ -16,12 +17,24 @@ class App extends Component {
     this.setState({ currentArticles: articles })
   }
 
+
+  componentDidMount(){
+    API.getArticle()
+    .then(res=> this.setState({ currentArticles: res.data}))
+    .catch(err=> console.log(err))
+  }
+
+  saveBooks = (event) => {
+    API.saveArticle()
+  }
+
   render() {
     return (
       <div className="App">
         {/* <Header /> */}
         <Search handleArticles={this.handleArticles} />
-        <Results currentArticles={this.state.currentArticles} />
+        <Results currentArticles={this.state.currentArticles}
+        />
         <Saved />
       </div>
     );

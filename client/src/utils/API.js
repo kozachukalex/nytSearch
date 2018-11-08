@@ -15,5 +15,16 @@ export default {
       url = url + "&end_date=" + end_date + "0101"
     }
     return axios.get(url);
+  },
+  getArticle: function() {
+    return axios.get("/api/articles");
+  },
+  // Deletes the Article with the given id
+  deleteArticle: function(id) {
+    return axios.delete("/api/articles/" + id);
+  },
+  // Saves an Article to the database
+  saveArticle: function(ArticleData) {
+    return axios.post("/api/articles", ArticleData);
   }
 };

@@ -2,7 +2,6 @@ import React from "react"
 import { Jumbotron, Input, Button } from "reactstrap"
 // import styled from 'styled-components'
 import "./index.css"
-
 import API from '../../utils/API'
 
 export default class Search extends React.Component {
@@ -37,6 +36,8 @@ export default class Search extends React.Component {
             }
             ).catch(err => console.log(err))
     };
+
+
 
     render() {
         return (
