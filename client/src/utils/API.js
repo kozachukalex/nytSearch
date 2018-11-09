@@ -16,15 +16,16 @@ export default {
     }
     return axios.get(url);
   },
-  getArticle: function() {
+  // Saves an article to the database
+  saveArticle(articleData) {
+    return axios.post("/api/articles", articleData);
+  },
+  // Gets all articles
+  getArticles() {
     return axios.get("/api/articles");
   },
-  // Deletes the Article with the given id
-  deleteArticle: function(id) {
-    return axios.delete("/api/articles/" + id);
-  },
-  // Saves an Article to the database
-  saveArticle: function(ArticleData) {
-    return axios.post("/api/articles", ArticleData);
+  // Deletes article with the given id
+  deleteArticle(id) {
+    return axios.delete(`/api/articles/${id}`);
   }
 };

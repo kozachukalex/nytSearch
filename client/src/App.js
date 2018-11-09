@@ -18,15 +18,11 @@ class App extends Component {
   }
 
 
-  componentDidMount(){
-    API.getArticle()
-    .then(res=> this.setState({ currentArticles: res.data}))
-    .catch(err=> console.log(err))
-  }
-
-  saveBooks = (event) => {
-    API.saveArticle()
-  }
+  // componentDidMount(){
+  //   API.getArticle()
+  //   .then(res=> this.setState({ currentArticles: res.data}))
+  //   .catch(err=> console.log(err))
+  // }
 
   render() {
     return (

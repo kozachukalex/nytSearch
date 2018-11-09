@@ -13,7 +13,7 @@ export default (props) => (
                 <p className="articleLabels"> {article.summary} </p>
                 <a href={article.link}> {article.link} </a>
                 <br></br>
-                <button> Save Article </button>
+                <button onClick={() => API.saveArticle(article)}> Save Article </button>
             </div>
         ))}
     </ul>
